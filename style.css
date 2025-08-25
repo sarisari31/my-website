@@ -213,7 +213,7 @@ section {
   --tile-h: 43px;
 }
 .marquee_story::before{
-  background-image: url(../img/img_marquee_mystory.png);
+  background-image: url(img/img_marquee_mystory.png);
 }
 
 /* ② Work：仮サイズ 1200×90、画像名は仮 */
@@ -222,7 +222,7 @@ section {
   --tile-h: 43px;
 }
 .marquee_work::before{
-  background-image: url(../img/img_marquee_work.png); /* 後で実ファイル名に差し替え */
+  background-image: url(img/img_marquee_work.png); /* 後で実ファイル名に差し替え */
 }
 
 /* ③ Inquiry：仮サイズ 1200×90、画像名は仮 */
@@ -231,7 +231,7 @@ section {
   --tile-h: 43px;
 }
 .marquee_inquiry::before{
-  background-image: url(../img/img_marquee_inquiry.png); /* 後で実ファイル名に差し替え */
+  background-image: url(img/img_marquee_inquiry.png); /* 後で実ファイル名に差し替え */
 }
 
 .card {
@@ -279,7 +279,7 @@ section {
 
 .timeline_list::after {
   content: "";
-  background-image: url(../img/dot_line.png);
+  background-image: url(img/dot_line.png);
   position: absolute;
   left: 7px;
   bottom: 7px;
