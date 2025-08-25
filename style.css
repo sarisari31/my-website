@@ -1,0 +1,530 @@
+/* 基本設定 */
+.display_pc {
+  display: none;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+  /* 方眼紙模様に必須のスタイル */
+  background-image: linear-gradient(0deg, transparent calc(100% - 1px), #f0f0f0 calc(100% - 1px)),
+  linear-gradient(90deg, transparent calc(100% - 1px), #f0f0f0 calc(100% - 1px));
+  background-size: 32px 32px;
+  background-repeat: repeat;
+  background-position: center center;
+}
+
+p {
+  margin: 0;
+}
+
+div {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  color: white;
+  padding: 10px 0;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+nav ul {
+  font-family: 'Lexend', sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.contents {
+  padding: 40px 0px;
+  /* width: 100%; */
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  display: inline-block;
+  margin: 80px 0 40px;
+}
+
+/* セクション共通 */
+section {
+  /* padding: 40px 20px; */
+  text-align: center;
+}
+
+.contents::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px; /* 線の太さ */
+  background: linear-gradient(135deg, rgba(130, 208, 235, 0.75), rgba(124, 72, 242, 0.75), rgba(242, 137, 207, 0.75));
+}
+
+.contents::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px; /* 線の太さ */
+  background: linear-gradient(135deg, rgba(130, 208, 235, 0.75), rgba(124, 72, 242, 0.75), rgba(242, 137, 207, 0.75));
+}
+
+/* ヒーロー */
+.hero {
+  /* background: linear-gradient(135deg, #f0c, #3cf); */
+  text-align: center;
+  color: white;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
+/* --- 背景がスライドする部分 --- */
+.masked-box {
+  width: 100%;   /* スライダー幅 */
+  height: 536px;  /* スライダー高さ */
+}
+
+.mask-wrap {
+  /* マスクさせたい見た目のサイズを必ず決める */
+  width: 100%;            /* 好きな幅に */
+  height: auto;           /* 好きな高さに */
+  position: relative;
+  overflow: hidden;        /* はみ出しは隠す */
+
+  /* SVGをそのままマスク画像として使う（アルファ判定）*/
+  -webkit-mask-image: url("/img/mask-shape.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: left;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-mode: alpha;          /* 念のため明示 */
+
+  mask-image: url("/img/mask-shape.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+  mask-mode: alpha;                  /* 念のため明示 */
+}
+
+.slider {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.slick-list {
+  margin: 0;
+  padding: 0;
+}
+
+.slick-slide {
+  margin: 0;
+}
+
+.mv-overlay {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== マーキー（My Story帯） ===== */
+.marquee {
+  /* 画像サイズ（タイル幅/高さ）と速度を変えたい時はここだけ触ればOK */
+  --tile-w: 638px;
+  --tile-h: 43px;
+  --duration: 30s;
+
+  position: relative;
+  height: var(--tile-h);   /* 画像の高さに合わせる */
+  overflow: hidden;
+}
+
+.marquee::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat-x;          /* 横方向にタイル化 */
+  background-size: var(--tile-w) var(--tile-h);
+  background-position: 0 50%;
+  animation: marqueeSlide var(--duration) linear infinite;
+  will-change: background-position;
+}
+
+/* 1タイル分だけ左へ流す → 継ぎ目なしでループ */
+@keyframes marqueeSlide{
+  from { background-position: 0 50%; }
+  to   { background-position: calc(-1 * var(--tile-w)) 50%; }
+}
+
+/* ===== 個別設定 ===== */
+/* ① My Story：実寸が 1202×87 なら下の2行を差し替えてOK */
+.marquee_story{
+  --tile-w: 638px;
+  --tile-h: 43px;
+}
+.marquee_story::before{
+  background-image: url(../img/img_marquee_mystory.png);
+}
+
+/* ② Work：仮サイズ 1200×90、画像名は仮 */
+.marquee_work{
+  --tile-w: 1076px;   /* 必要に応じて実寸に更新 */
+  --tile-h: 43px;
+}
+.marquee_work::before{
+  background-image: url(../img/img_marquee_work.png); /* 後で実ファイル名に差し替え */
+}
+
+/* ③ Inquiry：仮サイズ 1200×90、画像名は仮 */
+.marquee_inquiry{
+  --tile-w: 506px;   /* 必要に応じて実寸に更新 */
+  --tile-h: 43px;
+}
+.marquee_inquiry::before{
+  background-image: url(../img/img_marquee_inquiry.png); /* 後で実ファイル名に差し替え */
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(130, 208, 235, 0.75), rgba(124, 72, 242, 0.75), rgba(242, 137, 207, 0.75));
+  border-radius: 20px;
+  margin: 40px 20px 40px;
+  padding: 40px 30px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+  color: #fff;
+}
+
+.card-content p {
+  text-align: left;
+}
+
+.timeline {
+  padding: 0 30px;
+}
+
+.title {
+  width: 250px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timeline_list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 60px 0 40px;
+  position: relative;
+}
+
+.timeline_list::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  width: 3px;
+  height: 91%;
+  background-color: #82d0eb;
+}
+
+.timeline_list::after {
+  content: "";
+  background-image: url(../img/dot_line.png);
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
+  width: 3px;
+  height: 45px;
+  background-repeat: no-repeat;
+  display: block;
+  background-size: contain;
+}
+
+.timeline_item {
+  position: relative;
+  padding-left: 30px;
+  margin: 30px 0;
+  text-align: left;
+}
+
+.timeline_item::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  background-color: #82d0eb;
+  border-radius: 100%;
+}
+
+.timeline .dot {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  background: #8e2de2;
+  border-radius: 50%;
+}
+
+.services {
+  width: 100%;
+  padding: 0;
+}
+
+.services_list {
+  list-style: none;
+  padding: 0;
+  margin: 60px 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service_item {
+  box-sizing: border-box;
+}
+
+.service_item {
+  background: #fff;
+  border: 2px solid #9186f2;
+  margin: 15px auto;
+  max-width: 330px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.service_title {
+  background-color: #9186f2;
+  height: 48px;
+  color: #fff;
+  margin: 0 auto 10px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service_img {
+  width: 120px;
+  margin: 28px 0;
+}
+
+.timeline_title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.timeline_des {
+  margin-top: 0px;
+}
+
+.inquiry {
+  width: 100%;
+  background: #fff;
+  /* margin: 40px 0; */
+}
+
+.inquiry-contents {
+  margin-top: 25px;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  color: #666;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 750px) {
+  /* 最大幅コンテナが欲しい場合 */
+  .display_sp {
+    display: none;
+  }
+
+  .display_pc {
+    display: block;
+  }
+
+  .mv-overlay_pc {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .slider img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .mask-wrap {
+    /* SVGをそのままマスク画像として使う（アルファ判定）*/
+    -webkit-mask-image: url("/img/mask-shape_pc.svg");
+    mask-image: url("/img/mask-shape_pc.svg");
+  }
+
+  .contents {
+    box-sizing: border-box;
+    max-width: 970px;
+    width: 95%;
+    margin: 75px auto 40px;
+    /* margin-inline: auto; */
+    border: 2px solid transparent;
+    /* 1層目：中身の色（padding-box）
+     2層目：枠のグラデ（border-box） */
+    background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(
+      135deg,
+      rgba(130, 208, 235, 0.75),
+      rgba(124, 72, 242, 0.75),
+      rgba(242, 137, 207, 0.75)
+    ) border-box;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .contents::before {
+    content: none;
+  }
+
+  .contents::after {
+    content: none;
+  }
+
+  .card {
+    box-sizing: border-box;
+    max-width: 970px;
+    width: 95%;
+    margin: 40px auto 40px;
+  }
+  .card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  /* .profile_des {
+
+  } */
+
+  /* タイムラインを2カラム（例） */
+  .timeline {
+    padding: 0 40px;
+  }
+  .timeline_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+    margin: 60px 0;
+  }
+  .timeline_list::before {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+  }
+  .timeline_list::after {
+    left: auto;
+    bottom: 0;
+    right: 50%;
+    width: 3px;
+    transform: translate(50%,  50%);
+  }
+  .timeline_item {
+    margin: 0;
+  }
+  .timeline_item:nth-child(2n) {
+    margin-top: 110px;
+    padding-left: 10px;
+  }
+  .timeline_item:nth-child(2n)::before {
+    left: -23px;
+  }
+  .timeline_item:nth-child(odd)::before {
+    left: auto;
+    right: -23px;
+  }
+  .timeline_item:nth-child(1) {
+    margin-top: 0;
+  }
+
+  /* サービス一覧をグリッドに（例） */
+  .services_list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .service_item {
+    max-width: none;
+  }
+
+  /* ナビの横並び調整（必要なら） */
+  nav ul {
+    justify-content: center;
+    gap: 24px;
+  }
+}
