@@ -244,8 +244,20 @@ section {
   color: #fff;
 }
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .card-content p {
   text-align: left;
+  margin-top: 10px;
+}
+
+.profile_name_img img {
+  width: 90%;
+  border-radius: 20px;
 }
 
 .timeline {
@@ -461,15 +473,28 @@ html {
     max-width: 970px;
     width: 95%;
     margin: 40px auto 40px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   .card-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
     gap: 30px;
   }
-  /* .profile_des {
 
-  } */
+  .card-content p {
+    margin-top: 10px;
+  }
+
+  .profile_name_img img {
+    width: 300px;
+  }
+
+  .profile_des {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
 
   /* タイムラインを2カラム（例） */
   .timeline {
