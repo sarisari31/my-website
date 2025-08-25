@@ -131,13 +131,13 @@ section {
   overflow: hidden;        /* はみ出しは隠す */
 
   /* SVGをそのままマスク画像として使う（アルファ判定）*/
-  -webkit-mask-image: url("/img/mask-shape.svg");
+  -webkit-mask-image: url("img/mask-shape.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: left;
   -webkit-mask-size: 100% 100%;
   -webkit-mask-mode: alpha;          /* 念のため明示 */
 
-  mask-image: url("/img/mask-shape.svg");
+  mask-image: url("img/mask-shape.svg");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: cover;
@@ -422,8 +422,8 @@ html {
 
   .mask-wrap {
     /* SVGをそのままマスク画像として使う（アルファ判定）*/
-    -webkit-mask-image: url("/img/mask-shape_pc.svg");
-    mask-image: url("/img/mask-shape_pc.svg");
+    -webkit-mask-image: url("img/mask-shape_pc.svg");
+    mask-image: url("img/mask-shape_pc.svg");
   }
 
   .contents {
