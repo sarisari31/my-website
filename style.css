@@ -439,14 +439,6 @@ section {
   transform: translateY(2px); /* 少し押し込む演出（お好みで） */
 }
 
-footer {
-  text-align: center;
-  font-size: 0.8em;
-  color: #666;
-  padding: 20px;
-  margin-top: 40px;
-}
-
 html {
   scroll-behavior: smooth;
 }
