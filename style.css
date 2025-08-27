@@ -420,13 +420,17 @@ section {
 .btn {
   display: block;
   max-width: 330px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   padding: 15px 0;
   font-size: 16px;
   font-weight: bold;
   color: #9186f2;
   background-color: #fff;
+  background-image: url(../img/btn_arrow.png);
+  background-position: center right 15px;
+  background-size: 26px;
+  background-repeat: no-repeat;
   border-radius: 1000px;
   text-decoration: none;
   transition: 0.3s;
