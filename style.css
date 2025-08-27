@@ -109,7 +109,6 @@ section {
 
 /* ヒーロー */
 .hero {
-  /* background: linear-gradient(135deg, #f0c, #3cf); */
   text-align: center;
   color: white;
   padding: 0;
@@ -215,6 +214,7 @@ section {
 }
 .marquee_story::before{
   background-image: url(img/img_marquee_mystory.png);
+  opacity: 0.6;
 }
 
 /* ② Work：仮サイズ 1200×90、画像名は仮 */
@@ -223,7 +223,8 @@ section {
   --tile-h: 43px;
 }
 .marquee_work::before{
-  background-image: url(img/img_marquee_work.png); /* 後で実ファイル名に差し替え */
+  background-image: url(img/img_marquee_work.png);
+  opacity: 0.7;
 }
 
 /* ③ Inquiry：仮サイズ 1200×90、画像名は仮 */
@@ -232,7 +233,8 @@ section {
   --tile-h: 43px;
 }
 .marquee_inquiry::before{
-  background-image: url(img/img_marquee_inquiry.png); /* 後で実ファイル名に差し替え */
+  background-image: url(img/img_marquee_inquiry.png);
+  opacity: 0.6;
 }
 
 .card {
@@ -367,6 +369,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px 10px 0 0;
 }
 
 .service_img {
@@ -386,12 +389,54 @@ section {
 
 .inquiry {
   width: 100%;
-  background: #fff;
-  /* margin: 40px 0; */
+  background: linear-gradient(135deg, rgba(130, 208, 235, 0.75), rgba(124, 72, 242, 0.75), rgba(242, 137, 207, 0.85));
+  padding: 60px 0px 90px;
+  height: auto;
+  margin: 40px 0 0;
 }
 
 .inquiry-contents {
-  margin-top: 25px;
+  /* margin-top: 25px; */
+  padding: 0 30px;
+}
+
+.inquiry_text {
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: flex-end;
+  color: #fff;
+}
+
+.inquiry_text::before {
+  content: "＼ ";
+  margin-right: 0.25em;
+}
+
+.inquiry_text::after {
+  content: "／";
+  margin-left: 0.25em;
+}
+
+.btn {
+  display: block;
+  max-width: 330px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #9186f2;
+  background-color: #fff;
+  border-radius: 1000px;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 5px 0px #bcbcbc;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  box-shadow: none; /* ホバーで影を消す */
+  transform: translateY(2px); /* 少し押し込む演出（お好みで） */
 }
 
 footer {
@@ -546,6 +591,15 @@ html {
   }
   .service_item {
     max-width: none;
+  }
+
+  .inquiry {
+    max-width: 970px;
+    width: 95%;
+    border-radius: 10px;
+    display: block;
+    margin: 40px auto 60px;
+    padding: 60px 0;
   }
 
   /* ナビの横並び調整（必要なら） */
