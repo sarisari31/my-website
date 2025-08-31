@@ -490,6 +490,9 @@ html {
   transition: .2s;
   z-index: 1000;
 }
+body.modal-open {
+  overflow: hidden;
+}
 .modal.is-open {
   opacity: 1;
   visibility: visible;
@@ -503,6 +506,10 @@ html {
   width: 80%;
   position: relative;
   text-align: center;
+
+  max-height: 80vh;           /* 追加 */
+  overflow-y: auto;           /* 追加 */
+  -webkit-overflow-scrolling: touch; /* iOS慣性 */
 }
 .modal__close {
   position: absolute;
