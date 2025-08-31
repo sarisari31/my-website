@@ -109,6 +109,7 @@ section {
 
 /* ヒーロー */
 .hero {
+  /* background: linear-gradient(135deg, #f0c, #3cf); */
   text-align: center;
   color: white;
   padding: 0;
@@ -131,13 +132,13 @@ section {
   overflow: hidden;        /* はみ出しは隠す */
 
   /* SVGをそのままマスク画像として使う（アルファ判定）*/
-  -webkit-mask-image: url("img/mask-shape.svg");
+  -webkit-mask-image: url("/img/mask-shape.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: left;
   -webkit-mask-size: 100% 100%;
   -webkit-mask-mode: alpha;          /* 念のため明示 */
 
-  mask-image: url("img/mask-shape.svg");
+  mask-image: url("/img/mask-shape.svg");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: cover;
@@ -223,7 +224,7 @@ section {
   --tile-h: 43px;
 }
 .marquee_work::before{
-  background-image: url(img/img_marquee_work.png);
+  background-image: url(img/img_marquee_work.png); /* 後で実ファイル名に差し替え */
   opacity: 0.7;
 }
 
@@ -233,8 +234,8 @@ section {
   --tile-h: 43px;
 }
 .marquee_inquiry::before{
-  background-image: url(img/img_marquee_inquiry.png);
-  opacity: 0.6;
+  background-image: url(img/img_marquee_inquiry.png); /* 後で実ファイル名に差し替え */
+  opacity: 0.7;
 }
 
 .card {
@@ -347,16 +348,34 @@ section {
 }
 
 .service_item {
-  box-sizing: border-box;
-}
-
-.service_item {
   background: #fff;
   border: 2px solid #9186f2;
   margin: 15px auto;
   max-width: 330px;
   width: 100%;
   border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.service_item::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 34px;   /* ←追加 */
+  height: 34px;  /* ←追加 */
+  background-image: url(img/btn_arrow_fff.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateY(0) translateX(0); /* 初期位置 */
+  transition: transform 0.25s ease;          /* ←通常状態に書く */
+}
+
+.service_item:hover::after,
+.service_item:focus-visible::after,
+.service_item:active::after {
+  transform: translateY(0) translateX(6px); /* ホバーで右へ */
 }
 
 .service_title {
@@ -369,18 +388,21 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px 5px 0 0;
 }
 
 .service_img {
-  width: 120px;
-  margin: 28px 0;
+  width: 110px;
+  margin: 24px 0 37px;
 }
 
 .timeline_title {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
+}
+
+.lunch_img {
+  width: 90%;
 }
 
 .timeline_des {
@@ -427,24 +449,115 @@ section {
   font-weight: bold;
   color: #9186f2;
   background-color: #fff;
-  background-image: url(img/btn_arrow.png);
-  background-position: center right 15px;
-  background-size: 26px;
-  background-repeat: no-repeat;
+  border: 2px solid #9186f2;
   border-radius: 1000px;
   text-decoration: none;
-  transition: 0.3s;
-  box-shadow: 0 5px 0px #bcbcbc;
-  transition: all 0.3s ease;
+  position: relative;
 }
 
-.btn:hover {
-  box-shadow: none; /* ホバーで影を消す */
-  transform: translateY(2px); /* 少し押し込む演出（お好みで） */
+.btn::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 26px;   /* ←追加 */
+  height: 26px;  /* ←追加 */
+  background-image: url(img/btn_arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateY(0) translateX(0); /* 初期位置 */
+  transition: transform 0.25s ease;          /* ←通常状態に書く */
+}
+
+
+.btn:hover::after {
+  transform: translateY(0) translateX(6px); /* ホバーで右へ */
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* モーダルのベース */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s;
+  z-index: 1000;
+}
+.modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal__panel {
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 12px;
+  max-width: 830px;
+  width: 85%;
+  position: relative;
+  text-align: center;
+}
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal_title_service {
+  margin: 0 auto 20px;
+  position: relative;
+  font-size: 20px;
+}
+
+.modal_title_service::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 207px;
+  height: 2px;
+  background: linear-gradient(135deg, rgba(130, 208, 235, 0.75), rgba(124, 72, 242, 0.75), rgba(242, 137, 207, 0.85));
+  border-radius: 50px;
+}
+
+.service_contents {
+  margin: 40px auto 20px;
+}
+
+.contents_portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title_contents {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.img_portfolio {
+  width: 80%;
+  margin: 10px auto 10px;
+}
+
+.des_lunch {
+  text-align: left;
+}
+
+.service_item {
+  cursor: pointer;
 }
 
 @media (min-width: 750px) {
@@ -455,6 +568,10 @@ html {
 
   .display_pc {
     display: block;
+  }
+
+  nav ul {
+    font-size: 18px;
   }
 
   .mv-overlay_pc {
@@ -476,8 +593,8 @@ html {
 
   .mask-wrap {
     /* SVGをそのままマスク画像として使う（アルファ判定）*/
-    -webkit-mask-image: url("img/mask-shape_pc.svg");
-    mask-image: url("img/mask-shape_pc.svg");
+    -webkit-mask-image: url("/img/mask-shape_pc.svg");
+    mask-image: url("/img/mask-shape_pc.svg");
   }
 
   .contents {
@@ -587,6 +704,15 @@ html {
   }
   .service_item {
     max-width: none;
+  }
+  .contents_portfolio {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .img_portfolio {
+    width: 30%;
+    margin: 10px auto 30px;
   }
 
   .inquiry {

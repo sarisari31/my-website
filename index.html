@@ -68,7 +68,7 @@
       </li>
       <li class="timeline_item">
         <p class="timeline_title">中高大時代</p>
-        <p class="timeline_des">私立に通わせてもらい恵まれた環境ながら、留学は『お金が理由で』断念。“お金がないから諦める”現実を初めて体感。</p>
+        <p class="timeline_des">私立に通わせてもらい恵まれた環境ながら、留学はお金が理由で断念。“お金がないから諦める”現実を初めて体感。</p>
       </li>
       <li class="timeline_item">
         <p class="timeline_title">社会人スタート</p>
@@ -87,7 +87,7 @@
       </li>
       <li class="timeline_item">
         <p class="timeline_title">これから – ビジョン</p>
-        <p class="timeline_des">お金がないから諦める人を減らす』そして『好きなことを選べる人を増やす』未来をつくる。</p>
+        <p class="timeline_des">『お金がないから諦める人を減らす』そして『好きなことを選べる人を増やす』未来をつくる。</p>
       </li>
     </ul>
   </section>
@@ -98,20 +98,78 @@
   <section id="works" class="services contents">
     <h2><img class="title" src="img/title_works.png" alt="仕事内容"></h2>
     <ul class="services_list">
-      <li class="service_item">
+      <li class="service_item" data-modal-target="modal-bank">
         <p class="service_title">海外銀行の代理店事業</p>
         <img class="service_img" src="img/img_service01.png" alt="">
       </li>
-      <li class="service_item">
+      <li class="service_item" data-modal-target="modal-banner">
         <p class="service_title">バナー・Web画像作成</p>
         <img class="service_img" src="img/img_service02.png" alt="">
       </li>
-      <li class="service_item">
+      <li class="service_item" data-modal-target="modal-flyer">
         <p class="service_title">チラシ作成</p>
         <img class="service_img" src="img/img_service03.png" alt="">
       </li>
     </ul>
   </section>
+
+  <!-- モーダルたち -->
+<div class="modal" id="modal-bank">
+  <div class="modal__panel">
+    <button class="modal__close" data-close>✕</button>
+    <h3 class="modal_title_service">海外銀行の代理店事業</h3>
+    <p class="text_lead_service">円安・インフレ対策や資産分散のための海外銀行口座開設、代理店制度のご紹介をしています。</p>
+    <div class="contents_lunch service_contents">
+      <p class="title_lunch title_contents">無料ランチ会</p>
+      <p class="des_lunch" style="margin-bottom: 1em;">
+        赤坂の焼肉屋さんで、ざっくばらんに投資やお金の話を楽しむ無料ランチ会へご招待。
+      </p>
+      <p class="des_lunch" style="margin-bottom: 1em;">
+        製薬業界で営業トップを経験し、今も様々な事業で成果を出し続けるオーナーから、<br>投資経験談や考え方を直接聞ける貴重な場です。
+      </p>
+      <p class="des_lunch">
+        和やかな雰囲気で、美味しいランチを食べながら一緒に学んでみませんか？
+        （※先着順になります）
+      </p>
+      <img class="service_img lunch_img" src="img/img_lunch.png" alt="無料ランチ会">
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScdxMMbw8sasVvhrjC3A_8qC1cGHL2VVUWFSJrZ9PizJgaO-A/viewform" target="_blank" rel="noopener noreferrer" class="btn">
+      ご相談はこちらから
+    </a>
+  </div>
+</div>
+
+<div class="modal" id="modal-banner">
+  <div class="modal__panel">
+    <button class="modal__close" data-close>✕</button>
+    <h3 class="modal_title_service">バナー・Web画像制作</h3>
+    <p class="text_lead_service">キャンペーンやSNS向けのバナー、Web用の画像を制作します。</p>
+    <div class="portfolio service_contents">
+      <p class="portfolio_title title_contents">
+        【制作実績】
+      </p>
+      <div class="contents_portfolio">
+        <img class="img_portfolio" src="img/img_portforio01.png" alt="">
+        <img class="img_portfolio" src="img/img_portforio02.png" alt="">
+        <img class="img_portfolio" src="img/img_portforio03.png" alt="">
+      </div>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScdxMMbw8sasVvhrjC3A_8qC1cGHL2VVUWFSJrZ9PizJgaO-A/viewform" target="_blank" rel="noopener noreferrer" class="btn">
+      ご相談はこちらから
+    </a>
+  </div>
+</div>
+
+<div class="modal" id="modal-flyer">
+  <div class="modal__panel">
+    <button class="modal__close" data-close>✕</button>
+    <h3>チラシ作成</h3>
+    <p>印刷物やイベント用チラシのデザイン・入稿データ作成まで対応します。</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScdxMMbw8sasVvhrjC3A_8qC1cGHL2VVUWFSJrZ9PizJgaO-A/viewform" target="_blank" rel="noopener noreferrer" class="btn">
+      ご相談はこちらから
+    </a>
+  </div>
+</div>
 
   <div class="marquee marquee_inquiry">
   </div>
@@ -120,11 +178,10 @@
     <div class="inquiry-contents">
       <p class="inquiry_text">デザインのことも、お金のことも。<br class="display_sp">ちょっと話してみるだけでもOKです。</p>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScdxMMbw8sasVvhrjC3A_8qC1cGHL2VVUWFSJrZ9PizJgaO-A/viewform" target="_blank" rel="noopener noreferrer" class="btn">
-        お仕事のご相談はこちらから
+        ご相談はこちらから
       </a>
     </div>
   </section>
-
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script>
@@ -143,6 +200,28 @@
       pauseOnFocus: false,
       swipe: true,             // スワイプOK（無効にしたいなら false）
       adaptiveHeight: false,   // 画像比率を揃えないなら true に
+    });
+  </script>
+  <script>
+    document.addEventListener("click", (e) => {
+      // liクリックでモーダルを開く
+      const item = e.target.closest(".service_item");
+      if (item) {
+        const targetId = item.dataset.modalTarget;
+        const modal = document.getElementById(targetId);
+        if (modal) modal.classList.add("is-open");
+      }
+
+      // data-closeで閉じる
+      if (e.target.closest("[data-close]")) {
+        const modal = e.target.closest(".modal");
+        modal.classList.remove("is-open");
+      }
+
+      // 背景クリックで閉じる
+      if (e.target.classList.contains("modal")) {
+        e.target.classList.remove("is-open");
+      }
     });
   </script>
 </body>
