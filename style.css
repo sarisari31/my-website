@@ -380,6 +380,7 @@ section {
 
 .service_title {
   background-color: #9186f2;
+  border-radius: 4px 4px 0 0;
   height: 48px;
   color: #fff;
   margin: 0 auto 10px;
@@ -525,18 +526,27 @@ body.modal-open {
   margin: 0 auto 20px;
   position: relative;
   font-size: 20px;
+  display: inline-block;
 }
 
 .modal_title_service::after {
   position: absolute;
-  bottom: 0;
+  bottom: -3px;
   left: 50%;
   transform: translateX(-50%);
   content: "";
-  width: 207px;
-  height: 2px;
+  width: 100%;
+  height: 3px;
   background: linear-gradient(135deg, rgba(130, 208, 235, 0.75), rgba(124, 72, 242, 0.75), rgba(242, 137, 207, 0.85));
   border-radius: 50px;
+}
+
+.img_modal {
+  margin: 15px 0;
+}
+
+.text_lead_service {
+  text-align: left;
 }
 
 .service_contents {
@@ -552,7 +562,7 @@ body.modal-open {
 .title_contents {
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .img_portfolio {
@@ -601,8 +611,8 @@ body.modal-open {
 
   .mask-wrap {
     /* SVGをそのままマスク画像として使う（アルファ判定）*/
-    -webkit-mask-image: url("/img/mask-shape_pc.svg");
-    mask-image: url("/img/mask-shape_pc.svg");
+    -webkit-mask-image: url("img/mask-shape_pc.svg");
+    mask-image: url("img/mask-shape_pc.svg");
   }
 
   .contents {
@@ -713,6 +723,10 @@ body.modal-open {
   .service_item {
     max-width: none;
   }
+  /* モーダル */
+  .text_lead_service {
+    text-align: center;
+  }
   .contents_portfolio {
     display: flex;
     flex-direction: row;
@@ -721,6 +735,12 @@ body.modal-open {
   .img_portfolio {
     width: 30%;
     margin: 10px auto 30px;
+  }
+  .des_lunch {
+    text-align: center;
+  }
+  .lunch_img {
+    width: 60%;
   }
 
   .inquiry {
