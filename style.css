@@ -724,9 +724,26 @@ body.modal-open {
     max-width: none;
   }
   /* モーダル */
+  .modal__panel {
+    padding: 50px 50px;
+  }
   .text_lead_service {
     text-align: center;
   }
+
+  .service_contents {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  /* ポートフォリオ */
+  .portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .contents_portfolio {
     display: flex;
     flex-direction: row;
@@ -736,11 +753,9 @@ body.modal-open {
     width: 30%;
     margin: 10px auto 30px;
   }
-  .des_lunch {
-    text-align: center;
-  }
+
   .lunch_img {
-    width: 60%;
+    width: 40%;
   }
 
   .inquiry {
