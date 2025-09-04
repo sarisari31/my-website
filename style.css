@@ -740,6 +740,7 @@ body.modal-open {
   /* ポートフォリオ */
   .portfolio {
     display: flex;
+    gap: 0;
     flex-direction: column;
     align-items: center;
   }
